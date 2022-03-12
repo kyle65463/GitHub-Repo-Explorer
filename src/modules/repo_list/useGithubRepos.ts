@@ -17,7 +17,7 @@ export default function useGithubRepos(username: string) {
 		setRepos([...repos, ...newRepos]);
 		setPage((curPage) => curPage + 1);
 		setError(error);
-	}, [page]);
+	}, [username, page]);
 
 	// Fetch repos when the page first rendered
 	useEffect(() => {

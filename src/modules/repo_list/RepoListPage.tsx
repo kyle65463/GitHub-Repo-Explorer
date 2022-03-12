@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import RepoCard from "./RepoCard";
 import useGithubRepos from "./useGithubRepos";
+import useGithubUser from "./useGithubUser";
 
 interface RepoListPageProps {
 	username: string;
@@ -11,15 +12,30 @@ interface RepoListPageProps {
 export default function RepoListPage({ username }: RepoListPageProps) {
 	const router = useRouter();
 	const { hasMore, repos, error, onFetchRepos } = useGithubRepos(username);
+	const { user } = useGithubUser(username);
 
 	const onBack = useCallback(() => {
 		router.back();
 	}, []);
 
 	return (
-		<div>
+		<div className='repo-list-page'>
+			{user && (
+				<section className='user-section'>
+					<div className='flex items-center'>
+						<div className='avatar w-16 mr-6'>
+							<img src={user.avatar_url} alt='avatar' className='rounded-full' />
+						</div>
+						<div>
+							<h1 className='text-4xl'>{user.name}</h1>
+							{user.bio && <p className='mt-1 text-content-light'>{user.bio}</p>}
+						</div>
+					</div>
+					<p className='self-end mt-1 text-content-mid'>{user.public_repos} Repositories</p>
+				</section>
+			)}
 			<InfiniteScroll
-				dataLength={repos.length} //This is important field to render the next data
+				dataLength={repos.length}
 				next={onFetchRepos}
 				hasMore={hasMore}
 				loader={<h4 className='text-center pt-6'>Loading...</h4>}

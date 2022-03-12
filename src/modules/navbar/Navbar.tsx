@@ -10,7 +10,7 @@ export default function Navbar() {
 	}, []);
 
 	return (
-		<nav className='navbar bg-base-100 shadow-sm'>
+		<nav className='navbar bg-base-100 shadow-sm w-full'>
 			<div className='flex-1'>
 				<a className='btn btn-ghost normal-case text-xl' onClick={onLogoClick}>
 					GitHub Repo Viewer
