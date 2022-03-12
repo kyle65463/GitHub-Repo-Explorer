@@ -1,3 +1,4 @@
+import ErrorMessage from "common/ErrorMessage";
 import { useRouter } from "next/dist/client/router";
 import React, { useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -54,14 +55,7 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 					))}
 				</div>
 			</InfiniteScroll>
-			{error && (
-				<div className='error-message'>
-					<h2>{error}</h2>
-					<button className='btn btn-primary mt-6' onClick={onBack}>
-						Back
-					</button>
-				</div>
-			)}
+			{error && <ErrorMessage error={error}/>}
 		</div>
 	);
 }

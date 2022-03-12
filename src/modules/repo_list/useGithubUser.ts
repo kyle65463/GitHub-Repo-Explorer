@@ -2,7 +2,7 @@ import { User } from "@models/user";
 import { useState, useCallback, useEffect } from "react";
 import { fetchUser } from "service/github";
 
-export default function useGithubRepos(username: string) {
+export default function useGithubUser(username: string) {
 	const [user, setUser] = useState<User | undefined | null>();
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState<string | null>();

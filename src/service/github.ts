@@ -33,7 +33,7 @@ interface FetchUserResult {
 
 export async function fetchUser(username: string): Promise<FetchUserResult> {
 	try {
-		const res = await axios.get(`https://api.github.com/users/${username}`, {});
+		const res = await axios.get(`https://api.github.com/users/${username}`);
 		const user = res.data as User;
 		return { user, error: null };
 	} catch (err) {
@@ -41,5 +41,27 @@ export async function fetchUser(username: string): Promise<FetchUserResult> {
 			return { user: null, error: "User not found" };
 		}
 		return { user: null, error: "Oops, something went wrong" };
+	}
+}
+
+interface FetchRepoResult {
+	repo: Repo | null;
+	error: string | null;
+}
+
+export async function fetchRepo(username: string, reponame: string): Promise<FetchRepoResult> {
+	try {
+		const res = await axios.get(`https://api.github.com/repos/${username}/${reponame}`);
+		const repo = res.data as Repo;
+		return { repo, error: null };
+	} catch (err) {
+		if (axios.isAxiosError(err)) {
+			if (err.response?.status === 404) {
+				return { repo: null, error: "Repository not found" };
+			} else if (err.response?.status === 403) {
+				return { repo: null, error: "You are not authorized to access" };
+			}
+		}
+		return { repo: null, error: "Oops, something went wrong" };
 	}
 }
