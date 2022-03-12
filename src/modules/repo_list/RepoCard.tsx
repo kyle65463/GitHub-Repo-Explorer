@@ -26,13 +26,13 @@ export default function RepoCard({ username, repo }: RepoCardProps) {
 				<p className='text-content-mid'>{description}</p>
 				<div className='info-container mt-2'>
 					{language && <span className='info text-teal-500'>{language}</span>}
-					{stargazers_count && (
+					{stargazers_count !== undefined && (
 						<span className='info text-amber-500'>
 							<StarOutlineIcon sx={{ fontSize: 20 }} />
 							{stargazers_count}
 						</span>
 					)}
-					{forks_count && (
+					{forks_count !== undefined && (
 						<span className='info '>
 							<ForkIcon sx={{ fontSize: 20 }} /> {forks_count}
 						</span>

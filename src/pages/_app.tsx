@@ -4,7 +4,7 @@ import "../global.scss";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<div className="bg-base-200 min-h-screen">
+		<div className="relative bg-base-200 min-h-screen">
 			<Navbar />
 			<Component {...pageProps} />
 		</div>

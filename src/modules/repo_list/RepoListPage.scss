@@ -7,14 +7,13 @@
 }
 
 .repo-card {
+    // Responsive width
     @screen md {
         width: 70%;
     }
-
     @screen lg {
         width: 50%;
     }
-
 	width: 85%;
     max-width: 50rem;
 
