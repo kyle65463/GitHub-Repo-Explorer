@@ -5,7 +5,7 @@ export default function repos() {
 	const router = useRouter();
 	const { username } = router.query;
 	if (typeof username !== "string") {
-		return <div>route error</div>;
+		return <div>loading...</div>;
 	}
 	return <RepoListPage username={username} />;
 }

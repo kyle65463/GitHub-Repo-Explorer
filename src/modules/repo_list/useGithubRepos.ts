@@ -6,11 +6,13 @@ export default function useGithubRepos(username: string) {
 	const [page, setPage] = useState(1); // The next page number going to fetch
 	const [repos, setRepos] = useState<Repo[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const [hasMore, setHasMore] = useState(true);
 
 	const onFetchRepos = useCallback(async () => {
 		setIsLoading(true);
 		const newRepos = await fetchUserRepoList(username, page);
 		setIsLoading(false);
+		setHasMore(newRepos.length > 0);
 		setRepos([...repos, ...newRepos]);
 		setPage((curPage) => curPage + 1);
 	}, [page]);
@@ -20,5 +22,5 @@ export default function useGithubRepos(username: string) {
 		onFetchRepos();
 	}, []);
 
-	return { isLoading, repos, onFetchRepos };
+	return { isLoading, repos, onFetchRepos, hasMore };
 }
