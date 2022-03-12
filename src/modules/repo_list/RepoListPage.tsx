@@ -1,4 +1,5 @@
 import React from "react";
+import RepoCard from "./RepoCard";
 import useGithubRepos from "./useGithubRepos";
 
 interface RepoListPageProps {
@@ -9,9 +10,11 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 	const { isLoading, repos, onFetchRepos } = useGithubRepos(username);
 	return (
 		<div>
-			{repos.map((repo) => (
-				<p key={repo.node_id}>{repo.name}</p>
-			))}
+			<div className="repo-cards-container">
+				{repos.map((repo) => (
+					<RepoCard key={repo.node_id} repo={repo} />
+				))}
+			</div>
 			<button className='btn btn-primary' onClick={onFetchRepos}>
 				more
 			</button>

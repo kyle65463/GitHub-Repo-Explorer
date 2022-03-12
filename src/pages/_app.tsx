@@ -1,6 +1,10 @@
 import type { AppProps } from "next/app";
-import "../global.css";
+import "../global.scss";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
-	return <Component {...pageProps} />;
+	return (
+		<div className="bg-base-200">
+			<Component {...pageProps} />
+		</div>
+	);
 }
