@@ -15,11 +15,11 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 				dataLength={repos.length} //This is important field to render the next data
 				next={onFetchRepos}
 				hasMore={hasMore}
-				loader={<h4 className="text-center pt-6">Loading...</h4>}
+				loader={<h4 className='text-center pt-6'>Loading...</h4>}
 			>
 				<div className='repo-cards-container'>
 					{repos.map((repo) => (
-						<RepoCard key={repo.node_id} repo={repo} />
+						<RepoCard key={repo.node_id} username={username} repo={repo} />
 					))}
 				</div>
 			</InfiniteScroll>
