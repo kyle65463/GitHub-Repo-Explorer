@@ -25,7 +25,7 @@ export default function RepoCard({ username, repo }: RepoCardProps) {
 				</h2>
 				<p className='text-content-mid'>{description}</p>
 				<div className='info-container mt-2'>
-					{language && <span className='info text-teal-500'>{language}</span>}
+					{language && <span className='info info-language'>{language}</span>}
 					{stargazers_count !== undefined && (
 						<span className='info text-amber-500'>
 							<StarOutlineIcon sx={{ fontSize: 20 }} />
@@ -33,7 +33,7 @@ export default function RepoCard({ username, repo }: RepoCardProps) {
 						</span>
 					)}
 					{forks_count !== undefined && (
-						<span className='info '>
+						<span className='info'>
 							<ForkIcon sx={{ fontSize: 20 }} /> {forks_count}
 						</span>
 					)}

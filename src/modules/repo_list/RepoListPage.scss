@@ -8,6 +8,7 @@
 	}
 	width: 85%;
 	max-width: 50rem;
+	overflow: hidden;
 
 	.repo-cards-container {
 		display: flex;
@@ -31,6 +32,11 @@
 
 			&:not(:last-child) {
 				margin-right: 0.8rem;
+			}
+
+			&-language {
+				@apply badge badge-outline;
+				@apply text-content-light border-content-light;
 			}
 
 			&-container {
@@ -58,5 +64,12 @@
 		padding-top: 3rem;
 		display: flex;
 		flex-direction: column;
+	}
+
+	.loading-center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }

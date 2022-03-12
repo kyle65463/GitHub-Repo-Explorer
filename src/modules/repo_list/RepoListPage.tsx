@@ -27,7 +27,7 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 							<img src={user.avatar_url} alt='avatar' className='rounded-full' />
 						</div>
 						<div>
-							<h1 className='text-4xl'>{user.name}</h1>
+							<h1 className='text-4xl'>{user.name || username}</h1>
 							{user.bio && <p className='mt-1 text-content-light'>{user.bio}</p>}
 						</div>
 					</div>
@@ -38,7 +38,15 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 				dataLength={repos.length}
 				next={onFetchRepos}
 				hasMore={hasMore}
-				loader={<h4 className='text-center pt-6'>Loading...</h4>}
+				loader={
+					<h4
+						className={`text-2xl text-content-mid text-center ${
+							repos.length > 0 ? "mt-6 mb-20" : "loading-center"
+						} `}
+					>
+						Loading...
+					</h4>
+				}
 			>
 				<div className='repo-cards-container'>
 					{repos.map((repo) => (
