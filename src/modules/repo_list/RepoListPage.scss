@@ -7,15 +7,15 @@
 }
 
 .repo-card {
-    // Responsive width
-    @screen md {
-        width: 70%;
-    }
-    @screen lg {
-        width: 50%;
-    }
+	// Responsive width
+	@screen md {
+		width: 70%;
+	}
+	@screen lg {
+		width: 50%;
+	}
 	width: 85%;
-    max-width: 50rem;
+	max-width: 50rem;
 
 	&:not(:last-child) {
 		margin-bottom: 1rem;
@@ -35,4 +35,17 @@
 			@apply text-content-light text-sm;
 		}
 	}
+}
+
+.error-message {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	@apply text-3xl;
 }

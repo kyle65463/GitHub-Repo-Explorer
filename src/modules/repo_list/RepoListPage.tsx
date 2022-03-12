@@ -1,4 +1,5 @@
-import React from "react";
+import { useRouter } from "next/dist/client/router";
+import React, { useCallback } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import RepoCard from "./RepoCard";
 import useGithubRepos from "./useGithubRepos";
@@ -8,7 +9,13 @@ interface RepoListPageProps {
 }
 
 export default function RepoListPage({ username }: RepoListPageProps) {
-	const { hasMore, repos, onFetchRepos } = useGithubRepos(username);
+	const router = useRouter();
+	const { hasMore, repos, error, onFetchRepos } = useGithubRepos(username);
+
+	const onBack = useCallback(() => {
+		router.back();
+	}, []);
+
 	return (
 		<div>
 			<InfiniteScroll
@@ -23,6 +30,14 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 					))}
 				</div>
 			</InfiniteScroll>
+			{error && (
+				<div className='error-message'>
+					<h2>{error}</h2>
+					<button className='btn btn-primary mt-6' onClick={onBack}>
+						Back
+					</button>
+				</div>
+			)}
 		</div>
 	);
 }

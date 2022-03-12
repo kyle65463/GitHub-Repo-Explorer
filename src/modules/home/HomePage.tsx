@@ -12,7 +12,9 @@ export default function HomePage() {
 	const onSearch = useCallback(
 		(event: React.SyntheticEvent) => {
 			event.preventDefault();
-			router.push(`/users/${username}/repos`);
+			if (username) {
+				router.push(`/users/${username}/repos`);
+			}
 		},
 		[username]
 	);

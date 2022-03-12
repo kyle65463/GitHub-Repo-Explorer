@@ -7,14 +7,16 @@ export default function useGithubRepos(username: string) {
 	const [repos, setRepos] = useState<Repo[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [hasMore, setHasMore] = useState(true);
+	const [error, setError] = useState<string | null>();
 
 	const onFetchRepos = useCallback(async () => {
 		setIsLoading(true);
-		const newRepos = await fetchUserRepoList(username, page);
+		const { repos: newRepos, error } = await fetchUserRepoList(username, page);
 		setIsLoading(false);
 		setHasMore(newRepos.length > 0);
 		setRepos([...repos, ...newRepos]);
 		setPage((curPage) => curPage + 1);
+		setError(error);
 	}, [page]);
 
 	// Fetch repos when the page first rendered
@@ -22,5 +24,5 @@ export default function useGithubRepos(username: string) {
 		onFetchRepos();
 	}, []);
 
-	return { isLoading, repos, onFetchRepos, hasMore };
+	return { isLoading, repos, onFetchRepos, hasMore, error };
 }
