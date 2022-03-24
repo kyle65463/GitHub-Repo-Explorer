@@ -5,7 +5,7 @@ export default class MyDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<meta property='og:title' content='GitHub Viewer' key='title' />
+					<title>GitHub Viewer</title>
 					<link href='https://fonts.googleapis.com/css2?family=Inter&display=optional' rel='stylesheet' />
 					<link rel='preconnect' href='https://fonts.googleapis.com' />
 					<link rel='preconnect' href='https://fonts.gstatic.com' />
