@@ -24,7 +24,7 @@ export default function HomePage() {
 			<form className='search-bar' onSubmit={onSearch}>
 				{/* Input label */}
 				<label className='label'>
-					<span className='label-text text-content-light text-lg font-header'>Search for user</span>
+					<span className='label-text text-content-light text-lg font-header'>Search for users</span>
 				</label>
 
 				<div className='input-field'>

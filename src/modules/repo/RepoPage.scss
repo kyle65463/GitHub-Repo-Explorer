@@ -72,12 +72,13 @@
 		}
 
 		// Content
-		p {
+		p,
+		& > div {
 			@apply text-content-mid;
 			@apply mt-1;
 
 			.topic-badge {
-				@apply badge badge-primary text-gray-50;
+				@apply badge text-gray-50 bg-content-exlight border-content-exlight;
 
 				&:not(:last-child) {
 					margin-right: 0.25rem;

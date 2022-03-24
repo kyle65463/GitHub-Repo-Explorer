@@ -61,15 +61,26 @@ export default function RepoPage({ username, reponame }: RepoPageProps) {
 					{topics && topics?.length > 0 && (
 						<section>
 							<h3>Topics</h3>
-							<p>
+							<div>
 								{topics.map((topic, i) => (
 									<div key={i} className='topic-badge'>
 										{topic}
 									</div>
 								))}
-							</p>
+							</div>
 						</section>
 					)}
+
+					{/* View on GitHub button */}
+					<div className='flex-row-center mt-14'>
+						<a
+							href={`https://github.com/${username}/${reponame}`}
+							target='_blank'
+							className='btn btn-primary text-gray-50'
+						>
+							View on GitHub
+						</a>
+					</div>
 				</div>
 			)}
 
