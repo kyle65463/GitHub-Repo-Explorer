@@ -38,20 +38,20 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 							)}
 						</div>
 					</div>
-					<h3 className='text-header text-lg mt-7'>Description</h3>
+					<h3 className='text-header text-lg mt-7 font-medium font-header'>Description</h3>
 					<p className='text-content-mid mt-1'>{description}</p>
 					{language && (
 						<div>
-							<h3 className='text-header text-lg mt-7'>Language</h3>
+							<h3 className='text-header text-lg mt-7 font-medium font-header'>Language</h3>
 							<p className='text-content-mid mt-1'>{language}</p>
 						</div>
 					)}
-					{topics && (
+					{topics && topics?.length > 0 && (
 						<div>
-							<h3 className='text-header text-lg mt-7'>Topics</h3>
+							<h3 className='text-header text-lg mt-7 font-medium font-header'>Topics</h3>
 							<p className='text-content-mid mt-1'>
 								{topics.map((topic, i) => (
-									<div key={i} className='badge badge-primary mr-1'>
+									<div key={i} className='badge badge-primary text-gray-50 mr-1'>
 										{topic}
 									</div>
 								))}

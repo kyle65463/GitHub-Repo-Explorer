@@ -2,7 +2,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
 	purge: ["./src/**/*.{js,ts,jsx,tsx}"],
-	darkMode: "media", // or 'media' or 'class'
+	darkMode: "light",
 	theme: {
 		extend: {
 			colors: {
@@ -21,10 +21,14 @@ module.exports = {
 				floating: "2px 4px 3px #999",
 				card: "1px 3px 4px #E7E7E7",
 			},
+			fontFamily: {
+				header: ["Ubuntu"],
+				body: ["Lato"],
+			},
 		},
 	},
 	plugins: [require("daisyui"), require("tailwindcss"), require("precss"), require("autoprefixer")],
 	daisyui: {
-		themes: ["bumblebee"],
+		themes: ["cmyk"],
 	},
 };

@@ -23,16 +23,16 @@ export default function HomePage() {
 		<div>
 			<form className='search-bar' onSubmit={onSearch}>
 				<label className='label'>
-					<span className='label-text text-content-light text-lg'>Search for user</span>
+					<span className='label-text text-content-light text-lg font-header'>Search for user</span>
 				</label>
 				<div className='input-field'>
 					<input
 						type='text'
-						placeholder='The username you want to search for'
+						placeholder='Enter the username you want to search for'
 						className='input input-bordered w-full'
 						onChange={onInputChange}
 					/>
-					<button className='btn btn-primary ml-4 self-end' onClick={onSearch}>
+					<button className='btn btn-primary ml-4 self-end text-gray-50' onClick={onSearch}>
 						Search
 					</button>
 				</div>

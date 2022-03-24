@@ -28,11 +28,11 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 							<img src={user.avatar_url} alt='avatar' className='rounded-full' />
 						</div>
 						<div>
-							<h1 className='text-4xl'>{user.name || username}</h1>
+							<h1 className='text-4xl font-header'>{user.name || username}</h1>
 							{user.bio && <p className='mt-1 text-content-light'>{user.bio}</p>}
 						</div>
 					</div>
-					<p className='self-end mt-1 text-content-mid'>{user.public_repos} Repositories</p>
+					<p className='self-end mt-1 text-content-mid font-header'>{user.public_repos} Repositories</p>
 				</section>
 			)}
 			<InfiniteScroll
