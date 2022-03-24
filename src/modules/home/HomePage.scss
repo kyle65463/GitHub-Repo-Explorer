@@ -1,10 +1,10 @@
 .search-bar {
 	// Responsive width
-	@screen md {
-		width: 70%;
-	}
 	@screen lg {
 		width: 50%;
+	}
+	@screen md {
+		width: 70%;
 	}
 	width: 85%;
 	max-width: 50rem;
@@ -24,10 +24,13 @@
 		flex-direction: column;
 
 		button {
+			@apply btn btn-primary text-gray-50;
 			margin-top: 1rem;
 
 			@screen md {
 				margin-top: 0;
+				margin-left: 1rem;
+				align-self: flex-end;
 			}
 		}
 	}

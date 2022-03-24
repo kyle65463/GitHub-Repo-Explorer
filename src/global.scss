@@ -13,6 +13,19 @@
 	transform: translate(-50%, -50%);
 }
 
+.flex-row-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.flex-col-center {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .loading {
 	@apply text-2xl text-content-mid text-center;
 }

@@ -9,7 +9,7 @@ interface RepoPageProps {
 	reponame: string;
 }
 
-export default function RepoListPage({ username, reponame }: RepoPageProps) {
+export default function RepoPage({ username, reponame }: RepoPageProps) {
 	const { isLoading, repo, error } = useGithubRepo(username, reponame);
 	const { full_name, language, stargazers_count, forks_count, description, topics } = repo || {};
 
@@ -23,21 +23,21 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 						<h2>{full_name}</h2>
 
 						<div className='info-container'>
-							{/* Stargazers count */}
-							{stargazers_count !== undefined && (
-								<span className='info'>
-									<StarOutlineIcon sx={{ fontSize: 20 }} />
-									<span className='info-label'>Star</span>
-									<span className='info-count'>{stargazers_count}</span>
-								</span>
-							)}
-
 							{/* Forks count */}
 							{forks_count !== undefined && (
 								<span className='info'>
 									<ForkIcon sx={{ fontSize: 20 }} />
 									<span className='info-label'>Fork</span>
 									<span className='info-count'>{forks_count}</span>
+								</span>
+							)}
+
+							{/* Stargazers count */}
+							{stargazers_count !== undefined && (
+								<span className='info'>
+									<StarOutlineIcon sx={{ fontSize: 20 }} />
+									<span className='info-label'>Star</span>
+									<span className='info-count'>{stargazers_count}</span>
 								</span>
 							)}
 						</div>

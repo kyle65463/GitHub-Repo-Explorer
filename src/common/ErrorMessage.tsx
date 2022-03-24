@@ -13,7 +13,7 @@ export default function ErrorMessage({ error }: ErrorMessageProps) {
 	}, []);
 
 	return (
-		<div className='error-message'>
+		<div className='abs-center flex-col-center'>
 			<h2 className='text-header font-semibold text-xl md:text-3xl'>{error}</h2>
 			<button className='btn btn-primary mt-6 text-gray-50' onClick={onBack}>
 				Back

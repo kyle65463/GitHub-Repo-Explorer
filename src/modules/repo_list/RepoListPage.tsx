@@ -44,7 +44,7 @@ export default function RepoListPage({ username }: RepoListPageProps) {
 				dataLength={repos.length}
 				next={onFetchRepos}
 				hasMore={hasMore}
-				loader={<h4 className={`loading ${repos.length > 0 ? "mt-6 mb-20" : "abs-centert"} `}>Loading...</h4>}
+				loader={<h4 className={`loading ${repos.length > 0 ? "mt-6 mb-20" : "abs-center"} `}>Loading...</h4>}
 			>
 				<div className='repo-cards-container'>
 					{repos.map((repo) => (

@@ -1,7 +1,7 @@
 import { Repo } from "@models/repo";
-import { useRouter } from "next/dist/client/router";
-import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import ForkIcon from "@mui/icons-material/ForkLeft";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import { useRouter } from "next/dist/client/router";
 import React, { useCallback } from "react";
 
 interface RepoCardProps {
@@ -20,21 +20,31 @@ export default function RepoCard({ username, repo }: RepoCardProps) {
 	return (
 		<div className='repo-card card shadow-sm bg-white'>
 			<div className='card-body'>
-				<h2 className='card-title text-primary' onClick={onTitleClick}>
+				{/* Name */}
+				<h3 className='card-title text-primary' onClick={onTitleClick}>
 					<span className='cursor-pointer'>{name}</span>
-				</h2>
+				</h3>
+
+				{/* Description */}
 				<p className='text-content-mid'>{description}</p>
-				<div className='info-container mt-2'>
+
+				{/* Details */}
+				<div className='info-container'>
+					{/* Language */}
 					{language && <span className='info info-language'>{language}</span>}
+
+					{/* Forks count */}
+					{forks_count !== undefined && (
+						<span className='info'>
+							<ForkIcon sx={{ fontSize: 20 }} /> {forks_count}
+						</span>
+					)}
+
+					{/* Stargazers count */}
 					{stargazers_count !== undefined && (
 						<span className='info text-amber-500'>
 							<StarOutlineIcon sx={{ fontSize: 20 }} />
 							{stargazers_count}
-						</span>
-					)}
-					{forks_count !== undefined && (
-						<span className='info'>
-							<ForkIcon sx={{ fontSize: 20 }} /> {forks_count}
 						</span>
 					)}
 				</div>

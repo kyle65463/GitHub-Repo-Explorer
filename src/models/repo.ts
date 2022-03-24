@@ -1,7 +1,5 @@
-import { id } from "@utils/types";
-
 export interface Repo {
-	node_id: id;
+	node_id: string;
 	name: string;
 	full_name: string;
 	forks_count: number;
