@@ -1,7 +1,7 @@
-import ErrorMessage from "common/ErrorMessage";
-import StarOutlineIcon from "@mui/icons-material/StarOutline";
 import ForkIcon from "@mui/icons-material/ForkLeft";
-import React, { useCallback } from "react";
+import StarOutlineIcon from "@mui/icons-material/StarOutline";
+import ErrorMessage from "common/ErrorMessage";
+import React from "react";
 import useGithubRepo from "./useGithubRepo";
 
 interface RepoPageProps {
@@ -16,12 +16,14 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 	return (
 		<div className='repo-page'>
 			{repo && (
-				<div className='shadow-sm'>
-					<div className='flex justify-between items-center'>
-						<h2 className='text-2xl font-bold text-primary'>
-							<span>{full_name}</span>
-						</h2>
+				<div>
+					{/* Title */}
+					<section className='title'>
+						{/* Repo's full name */}
+						<h2>{full_name}</h2>
+
 						<div className='info-container'>
+							{/* Stargazers count */}
 							{stargazers_count !== undefined && (
 								<span className='info'>
 									<StarOutlineIcon sx={{ fontSize: 20 }} />
@@ -29,6 +31,8 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 									<span className='info-count'>{stargazers_count}</span>
 								</span>
 							)}
+
+							{/* Forks count */}
 							{forks_count !== undefined && (
 								<span className='info'>
 									<ForkIcon sx={{ fontSize: 20 }} />
@@ -37,30 +41,38 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 								</span>
 							)}
 						</div>
-					</div>
-					<h3 className='text-header text-lg mt-7 font-medium font-header'>Description</h3>
-					<p className='text-content-mid mt-1'>{description}</p>
+					</section>
+
+					{/* Description section */}
+					<section>
+						<h3>Description</h3>
+						<p>{description ?? "No description"}</p>
+					</section>
+
+					{/* Language section */}
 					{language && (
-						<div>
-							<h3 className='text-header text-lg mt-7 font-medium font-header'>Language</h3>
-							<p className='text-content-mid mt-1'>{language}</p>
-						</div>
+						<section>
+							<h3>Language</h3>
+							<p>{language}</p>
+						</section>
 					)}
+
+					{/* Topics section */}
 					{topics && topics?.length > 0 && (
-						<div>
-							<h3 className='text-header text-lg mt-7 font-medium font-header'>Topics</h3>
-							<p className='text-content-mid mt-1'>
+						<section>
+							<h3>Topics</h3>
+							<p>
 								{topics.map((topic, i) => (
-									<div key={i} className='badge badge-primary text-gray-50 mr-1'>
+									<div key={i} className='topic-badge'>
 										{topic}
 									</div>
 								))}
 							</p>
-						</div>
+						</section>
 					)}
 				</div>
 			)}
-			{!repo && !error && <h4 className={`text-2xl text-content-mid text-center loading-center`}>Loading...</h4>}
+			{isLoading && <h4 className='loading abs-center'>Loading...</h4>}
 			{error && <ErrorMessage error={error} />}
 		</div>
 	);
