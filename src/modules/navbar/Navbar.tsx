@@ -1,5 +1,4 @@
 import { useRouter } from "next/dist/client/router";
-import Link from "next/link";
 import React, { useCallback } from "react";
 
 export default function Navbar() {
@@ -19,7 +18,9 @@ export default function Navbar() {
 			<div className='flex-none'>
 				<ul className='menu flex-row p-0'>
 					<li>
-						<Link href='/about'> About </Link>
+						<a target='_blank' href='https://www.kyle65463.com'>
+							Author
+						</a>
 					</li>
 				</ul>
 			</div>
