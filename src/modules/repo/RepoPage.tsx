@@ -60,6 +60,7 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 					)}
 				</div>
 			)}
+			{!repo && !error && <h4 className={`text-2xl text-content-mid text-center loading-center`}>Loading...</h4>}
 			{error && <ErrorMessage error={error} />}
 		</div>
 	);

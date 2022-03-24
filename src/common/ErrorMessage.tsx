@@ -14,8 +14,8 @@ export default function ErrorMessage({error}: ErrorMessageProps) {
 
 	return (
 		<div className='error-message'>
-			<h2>{error}</h2>
-			<button className='btn btn-primary mt-6' onClick={onBack}>
+			<h2 className='text-header font-semibold'>{error}</h2>
+			<button className='btn btn-primary mt-6 text-gray-50' onClick={onBack}>
 				Back
 			</button>
 		</div>
