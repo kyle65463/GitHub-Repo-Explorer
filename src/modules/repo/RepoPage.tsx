@@ -72,7 +72,11 @@ export default function RepoListPage({ username, reponame }: RepoPageProps) {
 					)}
 				</div>
 			)}
+
+			{/* Loading indicator */}
 			{isLoading && <h4 className='loading abs-center'>Loading...</h4>}
+
+			{/* Error message */}
 			{error && <ErrorMessage error={error} />}
 		</div>
 	);

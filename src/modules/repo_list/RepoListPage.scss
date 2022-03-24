@@ -1,14 +1,35 @@
 .repo-list-page {
 	// Responsive width
-	@screen md {
-		width: 70%;
-	}
 	@screen lg {
 		width: 50%;
+	}
+	@screen md {
+		width: 70%;
 	}
 	width: 85%;
 	max-width: 50rem;
 	overflow: hidden;
+	padding-top: 3rem;
+
+	.user-section {
+		display: flex;
+		flex-direction: column;
+
+		// Username
+		h2 {
+			@apply text-3xl font-header;
+
+			@screen md {
+				@apply text-4xl;
+			}
+		}
+
+		.repositories {
+			margin-top: 0.5rem;
+			align-self: flex-end;
+			@apply text-content-mid font-header;
+		}
+	}
 
 	.repo-cards-container {
 		display: flex;
@@ -45,11 +66,5 @@
 				@apply text-content-light text-sm;
 			}
 		}
-	}
-
-	.user-section {
-		padding-top: 3rem;
-		display: flex;
-		flex-direction: column;
 	}
 }
