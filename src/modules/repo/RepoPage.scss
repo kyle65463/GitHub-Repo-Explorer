@@ -1,0 +1,42 @@
+.repo-page {
+	// Responsive width
+	@screen md {
+		width: 70%;
+	}
+	@screen lg {
+		width: 50%;
+	}
+	width: 85%;
+	max-width: 50rem;
+	overflow: hidden;
+	padding-top: 3rem;
+
+	.info-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+
+		.info {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			border-radius: 0.5rem;
+			border: 1px solid lightgray;
+			@apply text-content-mid;
+			@apply px-3 py-1;
+
+			&-count {
+				@apply ml-1;
+				@apply bg-gray-200;
+				border-radius: 50rem;
+				width: 1.5rem;
+				height: 1.5rem;
+				text-align: center;
+			}
+
+			&:not(:last-child) {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+}
