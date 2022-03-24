@@ -22,7 +22,7 @@ module.exports = {
 				card: "1px 3px 4px #E7E7E7",
 			},
 			fontFamily: {
-				header: ["Ubuntu"],
+				header: ["Open Sans"],
 				body: ["Lato"],
 			},
 		},
